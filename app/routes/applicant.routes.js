@@ -5,7 +5,7 @@ module.exports = (app) => {
 	app.post('/applicants', applicants.create);
 
 	// Retreive all Applicants
-	app.get('/applicants', notes.findAll);
+	app.get('/applicants', applicants.findAll);
 
 	// Retrieve a single Applicant with applicantId
 	app.get('/applicants/:applicantId', applicants.findOne);
