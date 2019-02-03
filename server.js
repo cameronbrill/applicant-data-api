@@ -34,6 +34,8 @@ app.get('/', (req, res) => {
 	res.json({"message": "Welcome to StateFarm, home of the good Farm, can I take your order?"});
 });
 
+// Require Applicants routes
+require('./app/routes/applicant.routes.js')(app);
 
 // listen for requests
 app.listen(3000, () => {
