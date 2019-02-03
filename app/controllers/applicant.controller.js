@@ -9,6 +9,8 @@ exports.create = (req, res) => {
 		});
 	}
 	
+	res.setHeader("Access-Control-Allow-Origin", "*");
+
 	// Create an Applicant
 	const applicant = new Applicant({
 		name: req.body.name,
@@ -22,15 +24,15 @@ exports.create = (req, res) => {
 		video_url1: req.body.video_url1,
 		video_url2: req.body.video_url2,
 		video_url3: req.body.video_url3,
-		video_comments1: req.body.video_comments1 || "No comments",
-		video_comments2: req.body.video_comments2 || "No comments",
-		video_comments3: req.body.video_comments3 || "No comments",
+		video_comments1: req.body.video_comments1,
+		video_comments2: req.body.video_comments2,
+		video_comments3: req.body.video_comments3,
 		video_rating1: req.body.video_rating1,
 		video_rating2: req.body.video_rating2,
 		video_rating3: req.body.video_rating3,
 		code: req.body.code,
 		code_time: req.body.code_time,
-		code_comments: req.body.code_comments || "No comments",
+		code_comments: req.body.code_comments,
 		flagged: req.body.flagged,
 		judged: req.body.judged
 	});
@@ -48,6 +50,7 @@ exports.create = (req, res) => {
 
 // Retrieve and return all applicants from the database.
 exports.findAll = (req, res) => {
+	res.setHeader("Access-Control-Allow-Origin", "*");
 	Applicant.find()
 	.then(applicants => {
 		res.send(applicants);
@@ -60,6 +63,7 @@ exports.findAll = (req, res) => {
 
 // Find a single applicants with a noteId
 exports.findOne = (req, res) => {
+	res.setHeader("Access-Control-Allow-Origin", "*");
 	Applicant.findById(req.params.applicantId)
 	.then(applicant => {
 		if(!applicant) {
@@ -82,6 +86,7 @@ exports.findOne = (req, res) => {
 
 // Update an applicant identified by the applicantId in the request
 exports.update = (req, res) => {
+	res.setHeader("Access-Control-Allow-Origin", "*");
 	// Validate Request
 	if(!req.body.name) {
 		return res.status(400).send({
@@ -102,15 +107,15 @@ exports.update = (req, res) => {
 		video_url1: req.body.video_url1,
 		video_url2: req.body.video_url2,
 		video_url3: req.body.video_url3,
-		video_comments1: req.body.video_comments1 || "No comments",
-		video_comments2: req.body.video_comments2 || "No comments",
-		video_comments3: req.body.video_comments3 || "No comments",
+		video_comments1: req.body.video_comments1,
+		video_comments2: req.body.video_comments2,
+		video_comments3: req.body.video_comments3,
 		video_rating1: req.body.video_rating1,
 		video_rating2: req.body.video_rating2,
 		video_rating3: req.body.video_rating3,
 		code: req.body.code,
 		code_time: req.body.code_time,
-		code_comments: req.body.code_comments || "No comments",
+		code_comments: req.body.code_comments,
 		flagged: req.body.flagged,
 		judged: req.body.judged
 	}, {new: true})
