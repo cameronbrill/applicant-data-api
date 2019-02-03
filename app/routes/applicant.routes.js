@@ -11,7 +11,7 @@ module.exports = (app) => {
 	app.get('/applicants/:applicantId', applicants.findOne);
 
 	// Update an Applicant with applicantId
-	app.put('/applicants/:applicantId', applicants.update);
+	app.post('/update/:applicantId', applicants.update);
 
 	// Delete an Applicant with applicantId
 	app.delete('/applicants/:applicantId', applicants.delete);

@@ -2,6 +2,8 @@ const Applicant = require('../models/applicant.model.js');
 
 // Create and Save a new Applicant
 exports.create = (req, res) => {
+	res.setHeader("Access-Control-Allow-Origin", "*");
+	
 	// Validate request
 	if(!req.body.name) {
 		return res.status(400).send({
@@ -9,8 +11,6 @@ exports.create = (req, res) => {
 		});
 	}
 	
-	res.setHeader("Access-Control-Allow-Origin", "*");
-
 	// Create an Applicant
 	const applicant = new Applicant({
 		name: req.body.name,
