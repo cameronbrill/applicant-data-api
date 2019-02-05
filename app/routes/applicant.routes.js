@@ -14,5 +14,5 @@ module.exports = (app) => {
 	app.post('/update/:applicantId', applicants.update);
 
 	// Delete an Applicant with applicantId
-	app.delete('/applicants/:applicantId', applicants.delete);
+	app.post('/delete/:applicantId', applicants.delete);
 }

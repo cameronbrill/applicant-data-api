@@ -27,12 +27,13 @@ exports.create = (req, res) => {
 		video_comments1: req.body.video_comments1,
 		video_comments2: req.body.video_comments2,
 		video_comments3: req.body.video_comments3,
-		video_rating1: req.body.video_rating1,
-		video_rating2: req.body.video_rating2,
-		video_rating3: req.body.video_rating3,
+		video_rating1: req.body.video_rating1 || 0,
+		video_rating2: req.body.video_rating2 || 0,
+		video_rating3: req.body.video_rating3 || 0,
 		code: req.body.code,
 		code_time: req.body.code_time,
 		code_comments: req.body.code_comments,
+		code_rating: req.body.code_rating || 0,
 		flagged: req.body.flagged,
 		judged: req.body.judged
 	});
@@ -110,12 +111,13 @@ exports.update = (req, res) => {
 		video_comments1: req.body.video_comments1,
 		video_comments2: req.body.video_comments2,
 		video_comments3: req.body.video_comments3,
-		video_rating1: req.body.video_rating1,
-		video_rating2: req.body.video_rating2,
-		video_rating3: req.body.video_rating3,
+		video_rating1: req.body.video_rating1 || 0,
+		video_rating2: req.body.video_rating2 || 0,
+		video_rating3: req.body.video_rating3 || 0,
 		code: req.body.code,
 		code_time: req.body.code_time,
 		code_comments: req.body.code_comments,
+		code_rating: req.body.code_rating || 0,
 		flagged: req.body.flagged,
 		judged: req.body.judged
 	}, {new: true})

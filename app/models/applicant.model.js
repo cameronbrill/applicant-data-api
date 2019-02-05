@@ -21,6 +21,7 @@ const ApplicantSchema = mongoose.Schema({
 	code: String,
 	code_time: Number,
 	code_comments: String,
+	code_rating: Number,
 	flagged: Boolean,
 	judged: Boolean
 }, {
