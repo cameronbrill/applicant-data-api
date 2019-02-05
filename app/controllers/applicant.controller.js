@@ -142,6 +142,7 @@ exports.update = (req, res) => {
 
 // Delete an applicant with the specified applicantId in the request
 exports.delete = (req, res) => {
+	res.setHeader("Access-Control-Allow-Origin", "*");
 	Applicant.findByIdAndRemove(req.params.applicantId)
 	.then(applicant => {
 		if(!applicant) {
